@@ -9,3 +9,5 @@ const cardioSchema = new Schema({
 
 // Create Cardio model
 const Cardio = mongoose.model("CardioWorkout", cardioSchema);
+
+module.exports = Cardio;

@@ -11,3 +11,5 @@ const resistanceSchema = new Schema({
 
 // Create Cardio model
 const Resistance = mongoose.model("ResistanceWorkout", resistanceSchema);
+
+module.exports = Resistance;
