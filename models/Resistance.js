@@ -6,7 +6,7 @@ const resistanceSchema = new Schema({
   weight: Number,
   sets: Number,
   reps: Number,
-  Duration: Number
+  duration: Number
 });
 
 // Create Cardio model
