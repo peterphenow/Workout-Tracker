@@ -18,7 +18,7 @@ app.use(express.static("public"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout_db", { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
+  console.log(`Server listening on: http://localhost:${PORT} !`);
 });
 
 // // works to create a new document in the workouts collection
