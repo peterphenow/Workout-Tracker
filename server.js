@@ -21,22 +21,34 @@ app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
 
-// // works to create a new document in the cardioworkouts collection
-// const cardio = new db.Cardio({
-//   name: "Walk",
-//   distance: 1,
-//   duration: 20
+// // works to create a new document in the workouts collection
+// const cardio = new db.Workout({
+//   day: new Date().setDate(new Date().getDate() - 7),
+//   exercises: [
+//     {
+//       type: "cardio",
+//       name: "Running",
+//       duration: 25,
+//       distance: 4
+//     }
+//   ]
 // });
 
 // cardio.save();
 
-// // works to create a new document in the resistanceworkouts collection
-// const resistance = new db.Resistance({
-//   name: "bench press",
-//   weight: 150,
-//   sets: 5,
-//   reps: 10,
-//   duration: 20
+// // works to create a new document in the workouts collection
+// const resistance = new db.Workout({
+//   day: new Date().setDate(new Date().getDate() - 10),
+//   exercises: [
+//     {
+//       type: "resistance",
+//       name: "Bicep Curl",
+//       duration: 20,
+//       weight: 100,
+//       reps: 10,
+//       sets: 4
+//     }
+//   ]
 // });
 
 // resistance.save();
