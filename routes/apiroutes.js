@@ -6,9 +6,17 @@ module.exports = function (app) {
     console.log("-PUT /api/workouts/:id??? params", params.id);
   });
 
-  // called when new workout or continue workout is clicked
+  // called when continue workout is clicked
   app.post("/api/workouts/", (req, res) => {
     console.log("-POST /api/workouts/???", req.body);
+    db.Workout.create(req.body, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+        res.send(data);
+      }
+    });
   });
 
   // called when the stats page is opened
