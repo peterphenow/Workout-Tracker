@@ -2,12 +2,11 @@ async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);
   if (lastWorkout) {
-    document
-      .querySelector("a[href='/exercise?']")
-      .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
+    document.querySelector("a[href='/exercise?']").setAttribute("href", `/exercise?id=${lastWorkout._id}`);
 
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
+      //totalDuration: lastWorkout.exercises[lastWorkout.exercises.length - 1].duration,
       totalDuration: lastWorkout.totalDuration,
       numExercises: lastWorkout.exercises.length,
       ...tallyExercises(lastWorkout.exercises)
@@ -15,7 +14,7 @@ async function initWorkout() {
 
     renderWorkoutSummary(workoutSummary);
   } else {
-    renderNoWorkoutText()
+    renderNoWorkoutText();
   }
 }
 
@@ -57,7 +56,10 @@ function renderWorkoutSummary(summary) {
     totalDistance: "Total Distance Covered"
   };
 
-  Object.keys(summary).forEach(key => {
+  Object.keys(summary).forEach((key) => {
+    console.log("key =", key);
+    console.log("value =", summary[key]);
+
     const p = document.createElement("p");
     const strong = document.createElement("strong");
 
@@ -75,7 +77,7 @@ function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
   const p = document.createElement("p");
   const strong = document.createElement("strong");
-  strong.textContent = "You have not created a workout yet!"
+  strong.textContent = "You have not created a workout yet!";
 
   p.appendChild(strong);
   container.appendChild(p);
