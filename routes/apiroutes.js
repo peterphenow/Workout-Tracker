@@ -64,14 +64,17 @@ module.exports = function (app) {
 
   //when home page is loaded
   app.get("/api/workouts", (req, res) => {
-    // console.log("-GET /api/workouts??? home page loaded", req.body);
-    db.Workout.find({}, (err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        // console.log(data);
-        res.json(data);
-      }
+    db.Workout.aggregate([{ $addFields: { totalDuration: { $sum: "$exercises.duration" } } }]).then((data) => {
+      res.json(data);
     });
+    // console.log("-GET /api/workouts??? home page loaded", req.body);
+    // db.Workout.find({}, (err, data) => {
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     // console.log(data);
+    //     res.json(data);
+    //   }
+    // });
   });
 };
