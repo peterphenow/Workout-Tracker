@@ -12,6 +12,10 @@ This homework assignment had us complete the entire back-end of a workout tracke
 
 The user is able to continue a workout to add additional exercises to their most recent workout, or they can start a new workout and add as many exercises as they performed. The user is able to enter either cardio or resistance exercises and each has different data to include. Once some data is input, the user can then view some graphs and charts of the exercises on the dashboard.
 
+## **Challenges**
+
+One of the bigger challenges I had with this assignment was figuring out how to get the total duration of all exercises in a workout calculated and displayed in the "Last Workout" summary. With the front-end code we recieved, everything else was calculating and displaying successfully. For some reason, the total duration returned as undefined. In order to fix this, I needed to aggregate to add a new field to the workout object and name it totalDuration, since that is what the front-end code was looking for.
+
 ## **Link**
 
 The app is deployed on Heroku [here](https://workout-tracker-pp.herokuapp.com).
